@@ -35,6 +35,7 @@ long.desv.tipica=sd(longitudes)
 long.moda<-Moda(longitudes)
 
 #Coeficiente de asimetría de Pearson
+
 long.asimetria.Pearson<-100*long.desv.tipica/long.media
 
 long.recorrido<-long.max-long.min  # 5.3 de recorrido
