@@ -12,7 +12,8 @@ frecuencias.teoricas<-dpois(eritrocitos,lambda)
 
 # Añadimos las probabilidades que faltan, hace falta que el vector de probailidades
 # sume 1, en este caso, es una probabilidad de 4.467641e-06, ridícula, y la asigno 
-# al rarísimo caso de que una célula tenga 5 ritrocitos.
+# al rarísimo caso de que una célula tenga 5 eritrocitos.
+
 frecuencias.teoricas.b<-append(frecuencias.teoricas,1-sum(frecuencias.teoricas))
 frecuencias.b<-append(frecuencias,5)
 chisq.test(frecuencias.b,p=frecuencias.teoricas.b)
@@ -29,8 +30,10 @@ chisq.test(frecuencias.b,p=frecuencias.teoricas.b)
 # > In chisq.test(frecuencias, p = frecuencias.teoricas) :
 # >   Chi-squared approximation may be incorrect
 #
-# Un p-valor tan pequeño que nos obliga a descartar la hipótesis de que los datos 
-# se ajusten a una distribución de Poisson. Si ponemos los datos gráficamente:
+# Un p-valor tan pequeño que nos obliga a descartar la hipótesis nula de  
+# que los datos se ajusten a una distribución de Poisson. 
+
+# Si representamos los datos gráficamente:
 
 
 plot(as.table( setNames(frecuencias/50000,eritrocitos)), type="h", col="blue", from=0, to=4, lwd=4)
