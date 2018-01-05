@@ -37,5 +37,6 @@ chisq.test(frecuencias.b,p=frecuencias.teoricas.b)
 # distribución de Poisson en rojo, :
 
 
-plot(as.table( setNames(frecuencias/50000,eritrocitos)), type="h", col="blue", from=0, to=4, lwd=4)
-points(as.table( setNames(frecuencias.teoricas,eritrocitos)), col="red", type="h", to=4)
+plot(as.table( setNames(frecuencias/50000,eritrocitos)), type="h", col="blue", from=0,  lwd=4, ylab="Frecuencia", xlab="Eritrocitos por celula")
+points(as.table( setNames(frecuencias.teoricas,eritrocitos)), col="red", type="h")
+legend(2,0.6,c("Frecuencia teorica","Frecuencia real"),col=c(2,4), lty=c(1),lwd=3)
