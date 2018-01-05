@@ -1,5 +1,5 @@
 
-# Metemos las cosas en vectores
+# Guardamos los datos en vectores
 eritrocitos<-c(0,1,2,3,4)
 frecuencias<-c(40000,8621,1259,99,21)
 
@@ -33,7 +33,8 @@ chisq.test(frecuencias.b,p=frecuencias.teoricas.b)
 # Un p-valor tan pequeño que nos obliga a descartar la hipótesis nula de  
 # que los datos se ajusten a una distribución de Poisson. 
 
-# Si representamos los datos gráficamente:
+# Si representamos los datos gráficamente, los datos reales en azul, los de la
+# distribución de Poisson en rojo, :
 
 
 plot(as.table( setNames(frecuencias/50000,eritrocitos)), type="h", col="blue", from=0, to=4, lwd=4)
