@@ -1,0 +1,8 @@
+[1] "Media:  18.8021428571429"
+[1] "Mediana:  18.8"
+[1] "Moda:  18.5"
+[1] "Primer cuartil:  18.1"
+[1] "Tercer cuartil:  19.6"
+[1] "Desviacinnn tica:  1.12047445353642"
+[1] "Recorrido:  5.3"
+[1] "Coeficiente de asimetr de Pearson:  5.9592912470121"

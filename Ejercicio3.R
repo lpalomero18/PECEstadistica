@@ -18,25 +18,12 @@ frecuencias.teoricas.b<-append(frecuencias.teoricas,1-sum(frecuencias.teoricas))
 frecuencias.b<-append(frecuencias,5)
 chisq.test(frecuencias.b,p=frecuencias.teoricas.b)
 
-# El resultado es:
-# 
-# 
-# >         Chi-squared test for given probabilities
-# > 
-# > data:  frecuencias
-# > X-squared = 235.87, df = 5, p-value < 2.2e-16
-# > 
-# > Warning message:
-# > In chisq.test(frecuencias, p = frecuencias.teoricas) :
-# >   Chi-squared approximation may be incorrect
-#
-# Un p-valor tan pequeño que nos obliga a descartar la hipótesis nula de  
-# que los datos se ajusten a una distribución de Poisson. 
 
 # Si representamos los datos gráficamente, los datos reales en azul, los de la
 # distribución de Poisson en rojo, :
 
-
-plot(as.table( setNames(frecuencias/50000,eritrocitos)), type="h", col="blue", from=0,  lwd=4, ylab="Frecuencia", xlab="Eritrocitos por celula")
+png("histograma ej3.png")
+plot(as.table( setNames(frecuencias/50000,eritrocitos)), type="h", col="blue",  lwd=4, ylab="Frecuencia", xlab="Eritrocitos por celula")
 points(as.table( setNames(frecuencias.teoricas,eritrocitos)), col="red", type="h")
 legend(2,0.6,c("Frecuencia teorica","Frecuencia real"),col=c(2,4), lty=c(1),lwd=3)
+dev.off()

@@ -1,6 +1,4 @@
 # Intentaré seguir los estándares de estilo de Google: https://google.github.io/styleguide/Rguide.xml
-#Antes de nada, vamos a organizar el entorno
-par(mfrow=c(2,2)) # vamos a presentar 4 gráficos
 
 # Cargamos el fichero antebrazos.txt. He tenido que retocarlo un poco porque incluía
 # saltos de línea y he puesto todos los datos en una única línea.
@@ -53,15 +51,29 @@ longitudes.freq.abs <- table(longitudes.cut) # y esta es la distribución de fre
 longitudes.freq.relativa<-longitudes.freq.abs/length(longitudes)
 
 
+# El histograma normalero
+jpeg("histo ej1 a.jpg")
 hist(longitudes,breaks,freq=FALSE, right=FALSE)
+dev.off()
 
-#Frecuencias absolutas
-# Histograma de frecuencias RElatiacs X
-# Media X
-# mediana X
-# moda X
-# primer cuartil X
-# tercer cartil X
-# desviación típica X
-# recorrido X
-# coeficiente de asimetria de pearson X
+# Ahora intentaré hacer algo más bonito con ggplot
+jpeg("histo ej1 b.jpg")
+library(ggplot2)
+ggplot(data.frame(val=longitudes), aes(x=val)) + 
+  geom_histogram(breaks=breaks, aes(fill=..count..))+ 
+  labs(title="Frecuencia de longitud de antebrazos") +
+  labs(x="longitud", y="frecuencia absoluta")
+dev.off()
+
+
+#imprimimos a fichero los datos
+sink("resultados ej1.txt")
+print(paste("Media: ", long.media))
+print(paste("Mediana: ", long.mediana))
+print(paste("Moda: ", long.moda))
+print(paste("Primer cuartil: ", long.cuartil.1))
+print(paste("Tercer cuartil: ", long.cuartil.3))
+print(paste("Desviación típica: ", long.desv.tipica))
+print(paste("Recorrido: ", long.recorrido))
+print(paste("Coeficiente de asimetría de Pearson: ", long.asimetria.Pearson))
+sink()
